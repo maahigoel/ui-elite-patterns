@@ -18,7 +18,13 @@ const repoRoot = resolve(demoRoot, "..");
 const distMarker = resolve(repoRoot, "dist/registry/patterns.js");
 
 if (!existsSync(distMarker)) {
-  console.log("[generate] registry dist not found — building it first...");
+  // Cold clone: the registry hasn't been built yet (dist/ is gitignored).
+  // Bootstrap it so `cd demo && npm install && npm run dev` works on its own.
+  if (!existsSync(resolve(repoRoot, "node_modules"))) {
+    console.log("[generate] installing registry dependencies...");
+    execSync("npm install", { cwd: repoRoot, stdio: "inherit" });
+  }
+  console.log("[generate] building registry...");
   execSync("npm run build", { cwd: repoRoot, stdio: "inherit" });
 }
 

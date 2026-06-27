@@ -14,8 +14,8 @@ Magnetic cursors, scroll-jacked sections, reactive particle grids, clip-path pag
 ## Install & setup
 
 ```bash
-git clone <your-fork-url> ui-mcp
-cd ui-mcp
+git clone https://github.com/maahigoel/ui-elite-patterns.git
+cd ui-elite-patterns
 npm install
 npm run build
 ```
