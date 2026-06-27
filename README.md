@@ -48,6 +48,24 @@ npm run smoke   # builds, boots the server in-memory, and exercises every tool
 
 ---
 
+## Live demo site
+
+A local showcase website that renders **every pattern and component live** lives in [`demo/`](./demo). It uses a codegen script that pulls each component straight from this registry, so it always reflects exactly what the MCP server hands to Claude Code.
+
+```bash
+cd demo
+npm install
+npm run dev        # generates components from the registry, then starts Vite at http://localhost:5173
+```
+
+- Browse all 50 patterns + components in a filterable gallery (search, complexity, kind).
+- Click any card to view it **full-screen, running live**, with a slide-in source panel + copy button.
+- `npm run generate` re-syncs the demo with the registry after you add patterns. (`npm run dev`/`build` run it automatically.)
+
+Built with Vite + React + Tailwind + Framer Motion. Local only — no hosting required.
+
+---
+
 ## Tools
 
 ### 1. `get_ui_pattern`
